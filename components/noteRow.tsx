@@ -1,15 +1,20 @@
 import React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
+import { Note } from "./note";
 
-export function NoteRow({note}: any) {
+type NoteRowProps = {
+    note: Note;
+}
+
+export function NoteRow({note}: NoteRowProps) {
 
     return(
         <View>
             <Text>
-                Title: {note.Title}
+                Title: {note.title}
             </Text>
             <Text>
-                Date: {note.Date}
+                Date: {note.date}
             </Text>
         </View>
     );
