@@ -1,8 +1,8 @@
 import React from "react";
 import { Text, View, TouchableOpacity } from "react-native";
-import { Note } from "./note";
+import { Note } from '../types';
 
-type NoteRowProps = {
+type NoteRowProps ={
     note: Note;
 }
 
