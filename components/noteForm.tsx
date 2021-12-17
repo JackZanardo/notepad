@@ -10,25 +10,27 @@ type NoteFormProps = {
 
 //TODO: Refactor so a new note is not instantiated when edit
 export function NoteForm(props: NoteFormProps){
-    const note = props.note;
+    let note = props.note;
 
     const [title, setTitle] = useState(note ? note.title : "");
     const [content, setContent] = useState(note ? note.content : "");
 
     function handleSubmit(){
-        const saveNote: Note = {
+        note = {
             id: uuid.v4(),
             title: title,
             content: content,
             date: new Date()
         }
-        props.handleSubmit(saveNote)
+        props.handleSubmit(note)
     }
 
     return(
         <View>
             <Text>Note Form</Text>
+            <Text>Title:</Text>
             <TextInput onChangeText={setTitle} value={title} />
+            <Text>Content</Text>
             <TextInput onChangeText={setContent} value={content} />
         </View>
     );

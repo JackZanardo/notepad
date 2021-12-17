@@ -3,11 +3,12 @@ import {View, Text} from "react-native";
 import {Storage} from "../services";
 import { Note } from "../types";
 
-export function Create() {
+export function Create({ navigation }: any) {
     const [notes, setNotes] = Storage.useAsyncStorage('notes', []);
 
     function handleSubmit(note: Note) {
-
+      setNotes([note,...notes]);
+      navigation.navigate('Home');
     }
 
     return (
