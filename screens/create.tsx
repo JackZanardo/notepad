@@ -2,6 +2,7 @@ import React from "react";
 import {View, Text} from "react-native";
 import {Storage} from "../services";
 import { Note } from "../types";
+import { NoteForm } from "../components";
 
 export function Create({ navigation }: any) {
     const [notes, setNotes] = Storage.useAsyncStorage('notes', []);
@@ -14,6 +15,7 @@ export function Create({ navigation }: any) {
     return (
       <View>
           <Text>Create</Text>
+          <NoteForm note={null} handleSubmit={handleSubmit}/>
       </View>
     );
 }

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Text, View, TextInput } from 'react-native';
+import { Button } from ".";
 import { Note } from '../types';
 import uuid from 'react-native-uuid';
 
 type NoteFormProps = {
-    note?: Note;
+    note: Note | null;
     handleSubmit(note: Note): void;
 }
 
@@ -32,6 +33,7 @@ export function NoteForm(props: NoteFormProps){
             <TextInput onChangeText={setTitle} value={title} />
             <Text>Content</Text>
             <TextInput onChangeText={setContent} value={content} />
+            <Button onPress={handleSubmit} color="blue" title="Add Note" />
         </View>
     );
 }
